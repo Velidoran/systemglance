@@ -47,5 +47,5 @@ There are no automated UI tests, so please also try your change in `plasmawindow
 ## Releasing (maintainers)
 
 1. Update `Version` in `package/metadata.json`, and move the changelog's Unreleased entries under the new version.
-2. Merge to `main`, then tag and push: `git tag v1.2.3 && git push origin v1.2.3`.
-3. The release workflow checks that the tag matches `metadata.json` and has a changelog entry, runs the checks, builds the `.plasmoid` and publishes a GitHub release with it attached.
+2. Merge to `main`, then publish a release from the repository's **Releases** page: **Draft a new release**, create a tag such as `v1.2.3` on `main`, paste the changelog entry as the notes and click **Publish release**. `gh release create v1.2.3 --target main` works too.
+3. The release workflow checks that the tag matches `metadata.json` and has a changelog entry, runs the checks, builds the `.plasmoid` and attaches it to the release.

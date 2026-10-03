@@ -1,17 +1,20 @@
 name: Release
 
-# Push a tag matching the version in package/metadata.json (e.g. v1.0.0) to
-# publish a release with the .plasmoid attached.
+# Publish a release whose tag matches the version in package/metadata.json
+# (e.g. v1.0.0), from the Releases page or with `gh release create`. This
+# builds the .plasmoid and attaches it to that release.
 on:
-  push:
-    tags: ['v*']
+  release:
+    types: [published]
 
 jobs:
   release:
-    name: Build and publish
+    name: Build and attach the .plasmoid
     runs-on: ubuntu-24.04
     permissions:
       contents: write
+    env:
+      TAG: ${{ github.event.release.tag_name }}
     steps:
       - uses: actions/checkout@v6
 
@@ -23,8 +26,8 @@ jobs:
       - name: Check the tag matches metadata.json and the changelog
         run: |
           version=$(jq -r '.KPlugin.Version' package/metadata.json)
-          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
-            echo "::error::Tag $GITHUB_REF_NAME doesn't match metadata.json version $version"
+          if [ "v$version" != "$TAG" ]; then
+            echo "::error::Release tag $TAG doesn't match metadata.json version $version"
             exit 1
           fi
           if ! grep -qF "## [$version]" CHANGELOG.md; then
@@ -38,7 +41,7 @@ jobs:
       - name: Build the .plasmoid
         run: scripts/package.sh
 
-      - name: Publish the GitHub release
+      - name: Attach it to the release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" dist/systemglance-*.plasmoid --title "System Glance $GITHUB_REF_NAME" --generate-notes --verify-tag
+        run: gh release upload "$TAG" dist/systemglance-*.plasmoid --clobber --repo "$GITHUB_REPOSITORY"
