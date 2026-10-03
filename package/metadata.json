@@ -1,0 +1,20 @@
+{
+    "KPlugin": {
+        "Id": "com.github.systemglance",
+        "Name": "System Glance",
+        "Description": "At-a-glance CPU, RAM, network, disk and IP info, plus SSH launchers",
+        "Icon": "utilities-system-monitor",
+        "Version": "1.0.0",
+        "Authors": [
+            {
+                "Name": "System Glance contributors"
+            }
+        ],
+        "License": "MIT",
+        "Category": "System Information",
+        "Website": "https://github.com/Velidoran/systemglance",
+        "BugReportUrl": "https://github.com/Velidoran/systemglance/issues"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

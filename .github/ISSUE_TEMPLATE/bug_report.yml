@@ -1,0 +1,52 @@
+name: Bug report
+description: Something in System Glance doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Screenshots of the popup show your hostname, IP addresses, Wi-Fi network name and SSH hosts, so crop or blur anything you'd rather not share. For security problems, use [private reporting](https://github.com/Velidoran/systemglance/security/advisories/new) instead.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Which part of the popup or the settings was affected?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the popup
+        2. Click ...
+        3. See ...
+
+  - type: input
+    id: version
+    attributes:
+      label: System Glance version
+      description: Run `kpackagetool6 --type Plasma/Applet --show com.github.systemglance` to see it.
+      placeholder: 1.0.0
+
+  - type: input
+    id: environment
+    attributes:
+      label: Plasma version and distribution
+      description: Shown in System Settings → About this System. Please say whether you use Wayland or X11.
+      placeholder: Plasma 6.4.5 on Fedora 43 (Wayland)
+
+  - type: textarea
+    id: errors
+    attributes:
+      label: Error messages or screenshots
+      description: Run `plasmawindowed com.github.systemglance` in a terminal and paste what it prints, or look in `journalctl --user -u plasma-plasmashell`.

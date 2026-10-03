@@ -1,0 +1,17 @@
+name: Feature request
+description: Suggest an improvement or something new for the popup
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Describe your idea
+      description: What would it show or do, and what problem would it solve for you?
+    validations:
+      required: true
+
+  - type: textarea
+    id: today
+    attributes:
+      label: How do you handle this today?
+      description: Another widget, a command you run, or a workaround.

@@ -1,0 +1,15 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+*~
+*.swp
+*.kate-swp
+.idea/
+.vscode/
+
+# Packaging artifacts
+dist/
+*.plasmoid
+build/

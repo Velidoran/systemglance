@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name=""/>
+    <group name="General">
+        <entry name="refreshInterval" type="Int">
+            <label>Seconds between IP / network refreshes</label>
+            <default>10</default>
+            <min>1</min>
+            <max>3600</max>
+        </entry>
+        <entry name="diskMounts" type="String">
+            <label>Mount points to show, one per line</label>
+            <default>/</default>
+        </entry>
+        <entry name="showSwap" type="Bool">
+            <label>Show swap usage</label>
+            <default>false</default>
+        </entry>
+        <entry name="terminalCommand" type="String">
+            <label>Terminal command that runs a trailing command</label>
+            <default>konsole -e</default>
+        </entry>
+        <entry name="keepTerminalOpen" type="Bool">
+            <label>Keep the terminal open after the SSH session ends (konsole --hold)</label>
+            <default>false</default>
+        </entry>
+        <entry name="sshHosts" type="String">
+            <label>SSH hosts, one per line: label | user@host | port</label>
+            <default></default>
+        </entry>
+        <entry name="enablePublicIp" type="Bool">
+            <label>Show the "Fetch public IP" button (queries api.ipify.org on click)</label>
+            <default>true</default>
+        </entry>
+    </group>
+</kcfg>
