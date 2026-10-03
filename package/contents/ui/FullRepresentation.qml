@@ -9,9 +9,11 @@ import org.kde.plasma.plasma5support as P5Support
 ColumnLayout {
     id: root
 
+    // Plasma opens the popup at the preferred size, then remembers whatever
+    // size it had when it last closed.
     Layout.minimumWidth: Kirigami.Units.gridUnit * 12
     Layout.minimumHeight: Kirigami.Units.gridUnit * 20
-    Layout.preferredWidth: Kirigami.Units.gridUnit * 15
+    Layout.preferredWidth: Kirigami.Units.gridUnit * 21
     Layout.preferredHeight: Kirigami.Units.gridUnit * 28
     spacing: Kirigami.Units.smallSpacing
 
